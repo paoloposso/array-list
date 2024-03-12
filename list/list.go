@@ -69,15 +69,6 @@ func (l *list[T]) Tail() List[T] {
 	}
 }
 
-// String returns a string representation of the list.
-func (l *list[T]) String() string {
-	var allElements []string
-	for i := 0; i < len(*l.array); i++ {
-		allElements = append(allElements, fmt.Sprintf("%v", (*l.array)[i]))
-	}
-	return fmt.Sprintf("[%s]", strings.Join(allElements, " "))
-}
-
 // Get returns the item at the provided index, or an error if the index is out of bounds
 func (l *list[T]) Get(index int) (*T, error) {
 	if index > len(*l.array)-1 {
@@ -122,4 +113,13 @@ func (l *list[T]) Filter(fn func(T) bool) []T {
 // Clear removes all elements from the list
 func (l *list[T]) Clear() {
 	*l.array = []T{}
+}
+
+// String returns a string representation of the list.
+func (l *list[T]) String() string {
+	var allElements []string
+	for i := 0; i < len(*l.array); i++ {
+		allElements = append(allElements, fmt.Sprintf("%v", (*l.array)[i]))
+	}
+	return fmt.Sprintf("[%s]", strings.Join(allElements, " "))
 }
