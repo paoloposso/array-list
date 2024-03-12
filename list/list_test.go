@@ -152,7 +152,7 @@ func TestFilterStruct(t *testing.T) {
 
 	nonExistingName := "Zack"
 	items = l.Filter(func(item user) bool {
-		return item.name == existingName
+		return item.name == nonExistingName
 	})
 	if len(items) > 0 {
 		t.Errorf("Expected item %v to not exist in the list, but it was found", nonExistingName)
