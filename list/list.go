@@ -20,6 +20,9 @@ type List[T any] interface {
 	Get(index int) (*T, error)
 	Append(item T)
 	Prepend(item T)
+	RemoveAt(index int) error
+	Filter(fn func(T) bool) []T
+	Clear()
 }
 
 // New returns an empty list
@@ -103,4 +106,20 @@ func (l *list[T]) RemoveAt(index int) error {
 	}
 	*l.array = append((*l.array)[:index], (*l.array)[index+1:]...)
 	return nil
+}
+
+// Filter returns a new list containing only the elements that satisfy the provided function
+func (l *list[T]) Filter(fn func(T) bool) []T {
+	result := []T{}
+	for _, item := range *l.array {
+		if fn(item) {
+			result = append(result, item)
+		}
+	}
+	return result
+}
+
+// Clear removes all elements from the list
+func (l *list[T]) Clear() {
+	*l.array = []T{}
 }
