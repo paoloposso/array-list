@@ -4,7 +4,7 @@ This package provides a generic List data structure for Go. It uses Go 1.18's ge
 
 ## Features
 
-- Create a new list with `New()`
+- Create a new list with `NewList()`
 - Get the length of the list with `Length()`
 - Check if the list is empty with `IsEmpty()`
 - Get the first item in the list with `First()`
