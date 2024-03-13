@@ -1,5 +1,7 @@
-package main
+package structures
 
-func main() {
+import "github.com/paoloposso/go-structures/list"
 
+func NewList[T any]() list.List[T] {
+	return list.New[T]()
 }
