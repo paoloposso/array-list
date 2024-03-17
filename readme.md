@@ -21,10 +21,10 @@ This package provides a generic List data structure for Go. It uses Go 1.18's ge
 ## Usage
 
 ```go
-import structures "github.com/paoloposso/go-structures"
+import "github.com/paoloposso/go-structures/list"
 
 func main() {
-    l := structures.NewList[int]()
+    l := list.New[int]()
     l.Append(1)
     l.Append(2)
     l.Append(3)
